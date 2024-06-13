@@ -1,12 +1,16 @@
+import { Link } from 'react-router-dom';
 import classes from './Post.module.css';
 
-const names = ['Amr', 'Soad'];
-function Post(props){
-    const name = Math.random = 0.0?names[0]: names[1]; 
+/* eslint-disable react/prop-types */
+
+function Post({id, author, body}){
     return (
         <div className={classes.post}>
-            <p className = {classes.author}>{props.author}</p>
-            <p className={classes.text}>{props.body}</p>
+            <Link to={id}>
+                <p className = {classes.author}>{author}</p>
+                <p className={classes.text}>{body}</p>
+                <p className={classes.text}>{id}</p>
+            </Link>
       </div>
     );
 }

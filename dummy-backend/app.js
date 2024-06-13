@@ -25,7 +25,13 @@ app.get('/posts', async (req, res) => {
 app.get('/posts/:id', async (req, res) => {
   const storedPosts = await getStoredPosts();
   const post = storedPosts.find((post) => post.id === req.params.id);
+
   res.json({ post });
+  // res.writeHead(200, {
+  //   'Content-Type': 'application/json',
+  //   'Access-Control-Allow-Origin': '*' // Replace with your allowed origin(s)
+  // });
+  // res.end(JSON.stringify({"post":post}));
 });
 
 app.post('/posts', async (req, res) => {
